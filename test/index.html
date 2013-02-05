@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>QUnit Tests for UoPToC</title>
+		<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.11.0.css" type="text/css" >
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+
+		<article id="example_article">
+			<section>
+				<h1>Top One</h1>
+				<section>
+					<h1>First Top Sub-Section of Two</h1>
+				</section>
+				<section>
+					<h1>Second Top Sub-Section of Two</h1>
+					<section>
+						<h1>Extra part'o'the-second subsection of the first bit</h1>
+					</section>
+				</section>
+			</section>
+			<section>
+				<h1>Second One</h1>
+			</section>
+
+			<section>
+				<h1>Last One</h1>
+			</section>
+		</article>
+		
+
+		<script src="../src/uoptoc.js"></script>
+	    <script src="http://code.jquery.com/qunit/qunit-1.11.0.js"></script>  
+		<script src="test.js"></script>  
+	</body>
+</html>
