@@ -65,7 +65,9 @@ var uoptoc = ( function x() {
 	 */
 	gen = function(startNode) {
 		if (startNode) {
-			return treewalk(startNode, document.createElement("div") );
+			var nav = document.createElement("nav");
+			nav.classList.add("toc");
+			return treewalk(startNode, nav );
 		}
 		throw "startNode not defined";
 	},
