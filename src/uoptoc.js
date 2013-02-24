@@ -59,6 +59,15 @@ var uoptoc = ( function x() {
 		return cont;
 	},
 
+	scrollToHash = function() {
+		if (window.location.hash.substring(1)) {
+			if (document.getElementById(window.location.hash.substring(1))) {
+				document.getElementById(window.location.hash.substring(1)).scrollIntoView();
+				window.scrollBy(0, -(window.innerHeight/4));
+			}
+		}
+	},
+
 	/*
 	 * Look within the DOM any sections that contain elements with both
 	 * input and output classes
@@ -97,7 +106,8 @@ var uoptoc = ( function x() {
 	return {
 		gen: gen,
 		genPop: genPop,
-		genPopSelector: genPopSelector
+		genPopSelector: genPopSelector,
+		scrollToHash: scrollToHash
 	};
 
 } ());
