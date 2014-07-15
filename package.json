@@ -1,0 +1,27 @@
+{
+  "name": "outliner",
+  "main": "./build/uoptoc.min.js",
+  "version": "0.1.0",
+  "description": "html5 page outliner",
+  "keywords": [
+    "html",
+    "html5",
+    "semantic",
+    "article",
+    "section"
+  ],
+  "maintainers": [
+    {
+      "name": "Rich Boakes",
+      "email": "rjb@boakes.org",
+      "web": "http://boakes.org"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/portsoc/outliner/"
+  },
+  "devDependencies": {
+    "jsdom": "~0.8.3"
+  }
+}
+
