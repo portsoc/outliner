@@ -20,8 +20,8 @@
   "repository": {
     "url": "https://github.com/portsoc/outliner/"
   },
-  "devDependencies": {
-    "jsdom": "~0.8.3"
+  "dependencies": {
+    "jsdom": "0.8.x"
   }
 }
 
