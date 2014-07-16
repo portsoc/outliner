@@ -1,5 +1,7 @@
-test("gen", 15, function() {
+var uoptoc = (uoptoc ? uoptoc : true);
 
+test("gen", 15, function() {
+    "use strict";
 	var parent = document.querySelector("article");
 	var tree = uoptoc.gen(parent);
 
@@ -24,7 +26,7 @@ test("gen", 15, function() {
 });
 
 test("genPop", 15, function() {
-
+    "use strict";
 	var parent = document.querySelector("article");
 	var dest = document.querySelector("#qunit-fixture");
 	var tree = uoptoc.genPop(parent, dest);
@@ -51,7 +53,7 @@ test("genPop", 15, function() {
 });
 
 test("genPopSelector", 15, function() {
-
+    "use strict";
 	var tree = uoptoc.genPopSelector("article", "#qunit-fixture");
 
 	ok( tree , "The gen function should return a tree: " + tree );
