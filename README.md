@@ -1,7 +1,9 @@
 Outliner
 ========
 
-A tool for creating a document-outline based on HTML5 `section`s and sub`section`s within an `article`.  Older documents that use `h1`-`h6` are not catered for.
+A tool for creating a document-outline based on HTML5 `section`s and sub`section`s within an `article`.
+
+Older documents that use `h1`-`h6` are not handled.
 
 Installation
 ============
