@@ -1,8 +1,12 @@
-var uoptoc = (uoptoc ? uoptoc : true);
+var uoptoc = (uoptoc ? uoptoc : {});
 
-test("gen", 15, function() {
+test("gen", 16, function() {
     "use strict";
 	var parent = document.querySelector("article");
+
+    ok( parent , "The parent should be a tree: " + parent );
+
+
 	var tree = uoptoc.gen(parent);
 
 	ok( tree , "The gen function should return a tree: " + tree );
