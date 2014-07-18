@@ -65,11 +65,11 @@ var uoptoc = ( function x() {
      */
     gen = function(document, startNode) {
         if (startNode) {
-            console.log("starting gen");
+            //console.log("starting gen");
             var nav = document.createElement("nav");
-            console.log("created nav", nav);
+            //console.log("created nav", nav);
             nav.setAttribute("class", "toc");
-            console.log("set class of ", nav);
+            //console.log("set class of ", nav);
             return treewalk(document, startNode, nav );
         }
         throw "startNode not defined";
@@ -80,7 +80,7 @@ var uoptoc = ( function x() {
      * input and output classes
      */
     genPop = function(document, startNode, destNode) {
-        console.log("starting genpop");
+        //console.log("starting genpop");
         var tree = gen(document, startNode);
         if (destNode) {
             destNode.appendChild( tree );
@@ -90,7 +90,7 @@ var uoptoc = ( function x() {
     },
 
     genPopSelector = function(document, startSelector, destSelector) {
-        console.log("starting genpopselector");
+        //console.log("starting genpopselector");
         return genPop(
             document,
             document.querySelector(startSelector),
