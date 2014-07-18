@@ -1,13 +1,15 @@
 var uoptoc = (uoptoc ? uoptoc : {});
 
-test("gen", 16, function() {
+
+test("gen", 17, function() {
     "use strict";
 	var parent = document.querySelector("article");
 
+    ok( uoptoc , "Outliner is: " + uoptoc );
     ok( parent , "The parent should be a tree: " + parent );
 
 
-	var tree = uoptoc.gen(parent);
+	var tree = uoptoc.gen(document, parent);
 
 	ok( tree , "The gen function should return a tree: " + tree );
 	equal( typeof tree, "object", "The gen function returns an object." );
@@ -33,7 +35,7 @@ test("genPop", 15, function() {
     "use strict";
 	var parent = document.querySelector("article");
 	var dest = document.querySelector("#qunit-fixture");
-	var tree = uoptoc.genPop(parent, dest);
+	var tree = uoptoc.genPop(document, parent, dest);
 
 	ok( tree , "The gen function should return a tree: " + tree );
 	equal( typeof tree, "object", "The gen function returns an object." );
@@ -58,7 +60,7 @@ test("genPop", 15, function() {
 
 test("genPopSelector", 15, function() {
     "use strict";
-	var tree = uoptoc.genPopSelector("article", "#qunit-fixture");
+	var tree = uoptoc.genPopSelector(document, "article", "#qunit-fixture");
 
 	ok( tree , "The gen function should return a tree: " + tree );
 	equal( typeof tree, "object", "The gen function returns an object." );

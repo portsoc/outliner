@@ -15,7 +15,7 @@ var uoptoc = ( function x() {
      * if there is no H1 elemenet, the nodes text content.
      * Uniqueness of new IDs ensured by appending underscores.
      */
-    ensureNodeHasId = function (node) {
+    ensureNodeHasId = function (document, node) {
         var firstHeading, text;
         if (node.id === "") {
             firstHeading = node.querySelector("h1");
@@ -33,14 +33,14 @@ var uoptoc = ( function x() {
      * Look within the DOM any sections that contain elements with both
      * input and output classes
      */
-    treewalk = function(node, cont) {
+    treewalk = function(document, node, cont) {
         var i, localheadings, ul, li, a;
 
         if (cont && node.children) {
             ul = document.createElement('ul');
             cont.appendChild(ul);
             for (i = 0; i < node.children.length; ++i) {
-                ensureNodeHasId(node.children[i]);
+                ensureNodeHasId(document, node.children[i]);
                 if (node.children[i].nodeName.toLowerCase() === "section" ) {
                      
                     a = document.createElement('a');
@@ -51,7 +51,7 @@ var uoptoc = ( function x() {
                         li = document.createElement('li');
                         li.appendChild(a);
                         ul.appendChild(li);
-                        treewalk(node.children[i], li);
+                        treewalk(document, node.children[i], li);
                     }
                 }
             }
@@ -59,24 +59,18 @@ var uoptoc = ( function x() {
         return cont;
     },
 
-    scrollToHash = function() {
-        if (window.location.hash.substring(1)) {
-            if (document.getElementById(window.location.hash.substring(1))) {
-                document.getElementById(window.location.hash.substring(1)).scrollIntoView();
-                window.scrollBy(0, -(window.innerHeight/4));
-            }
-        }
-    },
-
     /*
      * Look within the DOM any sections that contain elements with both
      * input and output classes
      */
-    gen = function(startNode) {
+    gen = function(document, startNode) {
         if (startNode) {
+            console.log("starting gen");
             var nav = document.createElement("nav");
-            nav.classList.add("toc");
-            return treewalk(startNode, nav );
+            console.log("created nav", nav);
+            nav.setAttribute("class", "toc");
+            console.log("set class of ", nav);
+            return treewalk(document, startNode, nav );
         }
         throw "startNode not defined";
     },
@@ -85,8 +79,9 @@ var uoptoc = ( function x() {
      * Look within the DOM any sections that contain elements with both
      * input and output classes
      */
-    genPop = function(startNode, destNode) {
-        var tree = gen(startNode);
+    genPop = function(document, startNode, destNode) {
+        console.log("starting genpop");
+        var tree = gen(document, startNode);
         if (destNode) {
             destNode.appendChild( tree );
             return tree;
@@ -94,8 +89,10 @@ var uoptoc = ( function x() {
         throw "destNode not defined";
     },
 
-    genPopSelector = function(startSelector, destSelector) {
+    genPopSelector = function(document, startSelector, destSelector) {
+        console.log("starting genpopselector");
         return genPop(
+            document,
             document.querySelector(startSelector),
             document.querySelector(destSelector)
         );
@@ -106,8 +103,7 @@ var uoptoc = ( function x() {
     return {
         gen: gen,
         genPop: genPop,
-        genPopSelector: genPopSelector,
-        scrollToHash: scrollToHash
+        genPopSelector: genPopSelector
     };
 
 } ());
