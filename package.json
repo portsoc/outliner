@@ -27,7 +27,8 @@
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-qunit": "^0.5.2",
-    "grunt-contrib-uglify": "^0.5.0"
+    "grunt-contrib-uglify": "^0.5.0",
+    "gulp-bump": "^0.1.10"
   },
   "readme": "Outliner\n========\n\nA tool for creating a document-outline based on HTML5 `section`s and sub`section`s within an `article`.\n\nOlder documents that use `h1`-`h6` are not handled.\n\nInstallation\n============\n\n`npm install outliner --save-dev`\n\nUsage\n=====\n\n* Get a handle on the module, e.g. `var uoptoc = require(\"outliner\")`\n* Call `uoptoc.gen(startNode)` passing in a DOM node and it will search the descendant tree for all sections and subsections.  Each section is given a unique ID if it does not already have one.  A nested unordered lists that reflects the structure is returned containing a link to each section.  \n* `uoptoc.genPop(startNode, destNode)` works as `uoptoc.gen(startNode)` except that the resulting UL is appended to the document's `destNode` element that is passed.\n* `genPopSelector` works as `uoptoc.genPop(startNode, destNode)` but css selectors for the start and destination nodes are passed.\n\nDependencies\n============\nIt uses the JSDOM module, so pass-in JSDOM module objects.\n",
   "readmeFilename": "README.md",
