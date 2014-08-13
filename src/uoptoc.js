@@ -69,6 +69,7 @@ var uoptoc = ( function x() {
             var nav = document.createElement("nav");
             //console.log("created nav", nav);
             nav.setAttribute("class", "toc");
+			nav.setAttribute("id", "toc");
             //console.log("set class of ", nav);
             return treewalk(document, startNode, nav );
         }

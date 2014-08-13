@@ -21,3 +21,8 @@ Usage
 Dependencies
 ============
 It uses the JSDOM module, so pass-in JSDOM module objects.
+
+History
+-------
+0.1.4 Added `toc` ID to generated content
+0.1.x The Earth cooled...
